@@ -25,13 +25,7 @@ const Restaurants = ({ term }) => {
       <FlatList
         data={data}
         keyExtractor={(restaurant) => restaurant.id}
-        renderItem={({ item, index }) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Restaurant', { id: item.id })}
-          >
-            <RestaurantItem restaurant={item} />
-          </TouchableOpacity>
-        )}
+        renderItem={({ item, index }) => <RestaurantItem restaurant={item} />}
       />
     </View>
   );

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import {
   Dimensions,
   FlatList,
@@ -7,10 +6,14 @@ import {
   Text,
   View,
 } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { useRoute } from '@react-navigation/native';
 import yelp from '../api/yelp';
 
-function RestaurantScreen({ navigation }) {
-  const id = navigation.getParam('id');
+const RestaurantScreen = () => {
+  const route = useRoute();
+  const { id } = route.params;
+
   const [results, setResults] = useState({
     data: null,
     loading: false,
@@ -81,12 +84,12 @@ function RestaurantScreen({ navigation }) {
       )}
     </View>
   );
-}
+};
+
+export default RestaurantScreen;
 
 const styles = StyleSheet.create({
   image: {
     flex: 1,
   },
 });
-
-export default RestaurantScreen;
